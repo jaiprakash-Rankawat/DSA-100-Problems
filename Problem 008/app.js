@@ -2,8 +2,8 @@
 
 function reverse(number) {
   let strNum = number.toString().split("").reverse().join("");
-  return parseInt(strNum);
+  return parseInt(strNum) * Math.sign(number);
 }
-let number = reverse(12345);
+let number = reverse(-12345);
 console.log(number); //54321
 console.log(typeof number); // type is number
