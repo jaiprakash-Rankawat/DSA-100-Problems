@@ -5,19 +5,12 @@
 function maxProfit(priceArray) {
   let minPrice = priceArray[0];
   let maxPrice = 0;
-  let index = 0;
   for (let i = 0; i < priceArray.length; i++) {
-    if (minPrice > priceArray[i]) {
-      minPrice = priceArray[i];
-      index = i;
-    }
+    let currentPrice = priceArray[i];
+    minPrice = Math.min(minPrice, currentPrice);
+    let potenialPrice = currentPrice - minPrice;
+    maxPrice = Math.max(maxPrice, potenialPrice);
   }
-  for (let j = index; j < priceArray.length; j++) {
-    if (maxPrice < priceArray[j]) {
-      maxPrice = priceArray[j];
-    }
-  }
-  profit = maxPrice - minPrice;
   return `Maximum profit is ${profit}`;
 }
 console.log(maxProfit([9, 1, 4, 8, 3, 2]));
