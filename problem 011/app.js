@@ -1,17 +1,23 @@
-var isPalindrome = function (s) {
-  let string = s.replace(/[^a-zA-Z]/g, "");
-  let str1 = string.toLowerCase().split("").reverse().join("");
-  let str2 = string.toLowerCase().split("").join("");
-  console.log(str1);
-  console.log(str2);
+// Q11. Find maximum profit ?
+// suppose 👉 [9,1,4,8,3,2] price at day 1 is 9 , day 2 is 1 and so on.
+// you buy at ruppes 1 and sell it on 8 ruppes so you got max profit of 7 rs.
 
-  if (str1 === str2) {
-    return true;
-  } else {
-    return false;
+function maxProfit(priceArray) {
+  let minPrice = priceArray[0];
+  let maxPrice = 0;
+  let index = 0;
+  for (let i = 0; i < priceArray.length; i++) {
+    if (minPrice > priceArray[i]) {
+      minPrice = priceArray[i];
+      index = i;
+    }
   }
-};
-
-console.log(isPalindrome("A man, a plan, a canal: Panama"));
-
-console.log(Math.pow(2, 5));
+  for (let j = index; j < priceArray.length; j++) {
+    if (maxPrice < priceArray[j]) {
+      maxPrice = priceArray[j];
+    }
+  }
+  profit = maxPrice - minPrice;
+  return `Maximum profit is ${profit}`;
+}
+console.log(maxProfit([9, 1, 4, 8, 3, 2]));
