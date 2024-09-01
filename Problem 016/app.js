@@ -31,16 +31,16 @@ class Stack {
         let minValue = current.data;
         
         while(current.next){
+            current = current.next;
             if(minValue>current.data){
                 minValue = current.data;
             }
-            current = current.next;
         }
         return minValue;
     }
 }
 
-let stack = new Stack(50);
+let stack = new Stack(2);
 stack.push(10);
 stack.push(20);
 stack.push(4);
